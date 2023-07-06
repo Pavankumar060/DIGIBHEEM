@@ -25,6 +25,8 @@ export const HotelApp = () => {
   ) => {
     if (persons > 2) {
       setAddRates((addRates = 1000 * (persons - 2) * days));
+    } else {
+      setAddRates(0);
     }
 
     setAmiRates(amiRates1 + amiRates2);
@@ -161,7 +163,7 @@ export const HotelApp = () => {
                 <div className="item">
                   <h3 className="info">Balance Amount</h3>
                   <h3 className="price" id="Bal_amt">
-                    {roomRates * days + amiRates + addRates - advance}
+                    {total - advance}
                   </h3>
                 </div>
                 <h1>Total cost :</h1>
