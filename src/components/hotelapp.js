@@ -28,7 +28,6 @@ export const HotelApp = () => {
     } else {
       setAddRates(0);
     }
-
     setAmiRates(amiRates1 + amiRates2);
     setTotal(roomRates * days + amiRates + addRates);
   };
@@ -40,9 +39,13 @@ export const HotelApp = () => {
   return (
     <>
       <div className="main">
+        {/* registration form  */}
+
         <div className="content">
           <h1>Registration Form</h1>
           <form action="#">
+            {/* customer info  */}
+
             <fieldset className="customer_info">
               <h2>Customer Info</h2>
               <label htmlFor="customer_name">
@@ -53,38 +56,41 @@ export const HotelApp = () => {
                   name="customer_name"
                   required
                 />
-                <label htmlFor="check-in_date">
-                  Check-in date <small>*</small>{" "}
-                  <input type="date" name="date" id="check-in_date" required />
-                </label>
-                <label htmlFor="days">
-                  Total No. of days <small>*</small>{" "}
-                  <input
-                    type="number"
-                    name="days"
-                    id="days"
-                    required
-                    value={days}
-                    onChange={(e) => {
-                      setDays(e.target.value);
-                    }}
-                  />
-                </label>
-                <label htmlFor="persons">
-                  Total No. of persons <small>*</small>{" "}
-                  <input
-                    type="number"
-                    name="persons"
-                    id="persons"
-                    required
-                    value={persons}
-                    onChange={(e) => {
-                      setPersons(e.target.value);
-                    }}
-                  />
-                </label>
+              </label>
+              <label htmlFor="check-in_date">
+                Check-in date <small>*</small>{" "}
+                <input type="date" name="date" id="check-in_date" required />
+              </label>
+              <label htmlFor="days">
+                Total No. of days <small>*</small>
+                <input
+                  type="number"
+                  name="days"
+                  id="days"
+                  required
+                  value={days}
+                  onChange={(e) => {
+                    setDays(e.target.value);
+                  }}
+                />
+              </label>
+              <label htmlFor="persons">
+                Total No. of persons <small>*</small>{" "}
+                <input
+                  type="number"
+                  name="persons"
+                  id="persons"
+                  required
+                  value={persons}
+                  onChange={(e) => {
+                    setPersons(e.target.value);
+                  }}
+                />
               </label>
             </fieldset>
+
+            {/* room info  */}
+
             <fieldset className="room_info">
               <h2>Room Info</h2>
               <label htmlFor="room_type">
@@ -134,6 +140,9 @@ export const HotelApp = () => {
                 Locker
               </label>
             </fieldset>
+
+            {/* advance payment  */}
+
             <fieldset className="payment">
               <label htmlFor="adv_payment">
                 Advance
@@ -150,6 +159,7 @@ export const HotelApp = () => {
                 />
               </label>
             </fieldset>
+
             <button
               type="button"
               onClick={() => {
@@ -158,33 +168,52 @@ export const HotelApp = () => {
             >
               View
             </button>
+
+            {/* showing required data  */}
+
             {value && (
               <div className="money">
+                {/* bal amount  */}
+
                 <div className="item">
                   <h3 className="info">Balance Amount</h3>
                   <h3 className="price" id="Bal_amt">
                     {total - advance}
                   </h3>
                 </div>
+
+                {/* total cost  */}
+
                 <h1>Total cost :</h1>
                 <div className="item">
+                  {/* room cost(total)  */}
+
                   <h3 className="info"> Total Room Cost</h3>
                   <h3 className="price" id="Advance_amt">
                     {roomRates * days}
                   </h3>
                 </div>
+
+                {/* amenities cost (total) */}
+
                 <div className="item">
                   <h3 className="info">Total Amenities Cost</h3>
                   <h3 className="price" id="pay_amt">
                     {amiRates}
                   </h3>
                 </div>
+
+                {/* additional cost (total)  */}
+
                 <div className="item">
                   <h3 className="info">Total Additional Cost</h3>
                   <h3 className="price" id="add_amt">
                     {addRates}
                   </h3>
                 </div>
+
+                {/* overall cost  */}
+
                 <div className="item">
                   <h3 className="info">Total Cost</h3>
                   <h3 className="price" id="total_amt">
@@ -196,6 +225,9 @@ export const HotelApp = () => {
             <input type="submit" value="Submit" />
           </form>
         </div>
+
+        {/* info data  */}
+
         <div className="data">
           <main>
             <h1>Room Rates</h1>
